@@ -8,6 +8,7 @@ import (
 	"github.com/fishjar/gin-boilerplate/crons"
 	"github.com/fishjar/gin-boilerplate/db"
 	"github.com/fishjar/gin-boilerplate/locker"
+	"github.com/fishjar/gin-boilerplate/logger"
 	"github.com/fishjar/gin-boilerplate/model"
 	"github.com/fishjar/gin-boilerplate/tasks"
 	"github.com/gin-gonic/gin"
@@ -32,6 +33,9 @@ func Pong(c *gin.Context) {
 	}
 	// 释放锁
 	defer lock.Release()
+
+	// 日志
+	logger.Log.Info("测试日志")
 
 	// 测试创建任务队列
 	t := tasks.NewEmailDeliveryTask(42, "some:template:id") // 创建任务
