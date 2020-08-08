@@ -1,0 +1,52 @@
+version: "3.1"
+
+services:
+  gin-app:
+    image: gin-boilerplate:v1.0.0
+    build: .
+    container_name: gin-boilerplate
+    restart: always
+    ports:
+      - 4000:4000
+    networks:
+      - gin-network
+    depends_on:
+      - mysql
+      - redis
+    volumes:
+      - "./tmp:/go/src/github.com/fishjar/gin-boilerplate/tmp"
+
+  mysql:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: testdb
+    ports:
+      - 3306:3306
+    networks:
+      - gin-network
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+      - gin-network
+
+  redis:
+    image: "bitnami/redis:latest"
+    environment:
+      # ALLOW_EMPTY_PASSWORD is recommended only for development.
+      # - REDIS_PASSWORD=password123
+      - ALLOW_EMPTY_PASSWORD=yes
+      - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
+    ports:
+      - "6379:6379"
+    networks:
+      - gin-network
+
+networks:
+  gin-network:

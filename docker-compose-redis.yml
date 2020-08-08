@@ -1,0 +1,12 @@
+version: "2"
+
+services:
+  redis:
+    image: "bitnami/redis:latest"
+    environment:
+      # ALLOW_EMPTY_PASSWORD is recommended only for development.
+      # - REDIS_PASSWORD=password123
+      - ALLOW_EMPTY_PASSWORD=yes
+      - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
+    ports:
+      - "6379:6379"

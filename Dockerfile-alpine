@@ -1,0 +1,10 @@
+FROM alpine:latest
+
+ENV GINPORT 4000
+ENV GINENV production
+
+WORKDIR $GOPATH/src/github.com/fishjar/gin-boilerplate
+COPY ./gin-boilerplate .
+
+EXPOSE 4000
+ENTRYPOINT ["./gin-boilerplate"]

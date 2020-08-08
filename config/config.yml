@@ -1,0 +1,16 @@
+appname: gin demo
+
+mysql:
+  host: localhost
+  port: 3306
+  user: root
+  password: "123456"
+  name: testdb
+
+redis:
+  host: localhost
+  port: 6379
+
+sqlite:
+  filepath: db
+  filename: "sqlite.db"
