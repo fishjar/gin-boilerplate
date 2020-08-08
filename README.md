@@ -105,7 +105,7 @@ docker-compose -f docker-compose.yml up -d
 `golang:alpine` 镜像中编译运行
 
 ```sh
-docker-compose -f docker-compose-alpine.yml up -d
+docker-compose -f docker-compose-go-alpine.yml up -d
 ```
 
 ### 方案三（镜像最小）
