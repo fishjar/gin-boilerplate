@@ -39,6 +39,92 @@
   - 批量更新（PATCH）
   - 批量删除（DELETE）
 
+## 目录结构
+
+```sh
+├── config                      # 配置文件目录
+│   ├── config.development.yml  # 开发环境配置
+│   ├── config.go
+│   ├── config.production.yml   # 生产环境配置
+│   └── config.yml              # 默认配置
+├── crons
+│   ├── crons.go
+│   └── jobs.go
+├── db
+│   ├── db.go
+│   └── redis.go
+├── docker-compose-alpine.yml
+├── docker-compose-go-alpine.yml
+├── docker-compose-mysql.yml
+├── docker-compose-redis.yml
+├── docker-compose.yml
+├── Dockerfile
+├── Dockerfile-alpine
+├── Dockerfile-go-alpine
+├── docs
+│   ├── docs.go
+│   ├── swagger.json
+│   └── swagger.yaml
+├── go.mod
+├── go.sum
+├── handler
+│   ├── auth.go
+│   ├── group.go
+│   ├── login.go
+│   ├── menu.go
+│   ├── pong.go
+│   ├── role.go
+│   ├── upload.go
+│   ├── user.go
+│   └── usergroup.go
+├── LICENSE
+├── locker
+│   └── locker.go
+├── logger
+│   └── logger.go
+├── main.go
+├── middleware
+│   ├── jwt.go
+│   ├── req.go
+│   └── role.go
+├── model
+│   ├── auth.go
+│   ├── base.go
+│   ├── group.go
+│   ├── menu.go
+│   ├── role.go
+│   ├── user.go
+│   └── usergroup.go
+├── README.md
+├── router
+│   ├── router.go
+│   └── server.go
+├── script
+│   ├── initdb.go
+│   ├── migrate.go
+│   └── script.go
+├── service
+│   ├── auth.go
+│   ├── file.go
+│   ├── jwt.go
+│   ├── redis.go
+│   ├── service.go
+│   └── user.go
+├── tasks
+│   ├── client.go
+│   ├── new.go
+│   ├── process.go
+│   ├── server.go
+│   └── tasks.go
+├── tmp
+│   ├── db        # sqlite数据库文件目录
+│   ├── log       # 日志保存目录
+│   └── upload    # 上传文件目录
+└── utils
+    ├── sign.go
+    └── utils.go
+```
+
 ## 开发指引
 
 ```sh

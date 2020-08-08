@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/fishjar/gin-boilerplate/config"
 	_ "github.com/fishjar/gin-boilerplate/docs"
 	"github.com/fishjar/gin-boilerplate/router"
 	"github.com/fishjar/gin-boilerplate/script"
@@ -49,13 +50,8 @@ func init() {
 	fmt.Println("------ GOPATH----------")
 	fmt.Println(os.Getenv("GOPATH"))
 
-	// 数据
-	// TODO 生产环境注意数据
-	// env := config.GINENV
-	// if env == "development" {
-	// 	script.Migrate() // 同步数据表
-	// 	script.InitDB()  // 数据初始化
-	// }
-	script.Migrate() // 同步数据表
-	script.InitDB()  // 数据初始化
+	if config.Config.APPEnv == "development" {
+		script.Migrate() // 同步数据表
+		script.InitDB()  // 数据初始化
+	}
 }
