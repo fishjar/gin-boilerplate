@@ -16,26 +16,17 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-// LogFile 日志文件
-var LogFile *os.File
+// 日志文件
+var (
+	LogFile     *os.File // 手工日志
+	LogGinFile  *os.File // gin框架日志
+	LogReqFile  *os.File // http请求日志
+	LogGormFile *os.File // grom日志
 
-// LogGinFile 日志文件
-var LogGinFile *os.File
-
-// LogReqFile 日志文件
-var LogReqFile *os.File
-
-// LogGormFile 日志文件
-var LogGormFile *os.File
-
-// Log 日志记录器
-var Log = logrus.New()
-
-// LogReq 日志记录器
-var LogReq = logrus.New()
-
-// LogGorm 日志记录器
-var LogGorm = logrus.New()
+	Log     = logrus.New()
+	LogReq  = logrus.New()
+	LogGorm = logrus.New()
+)
 
 func init() {
 	// 获取日志路径
