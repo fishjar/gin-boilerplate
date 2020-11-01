@@ -21,7 +21,13 @@ func InitRouter() *gin.Engine {
 	// r := gin.New()
 	r := gin.Default()               // Default 使用 Logger 和 Recovery 中间件
 	r.Use(middleware.LoggerToFile()) // 日志中间件
-	r.Use(cors.Default())            // 跨域中间件，Default() allows all origins
+
+	// r.Use(cors.Default())            // 跨域中间件，Default() allows all origins
+	conf := cors.DefaultConfig()
+	conf.AllowAllOrigins = true
+	conf.AllowHeaders = append(conf.AllowHeaders, "Authorization")
+	r.Use(cors.New(conf))
+
 	r.GET("/ping", handler.Pong)
 
 	r.GET("/swagger/*any", gin.BasicAuth(gin.Accounts{
