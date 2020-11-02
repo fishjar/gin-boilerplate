@@ -101,20 +101,40 @@ definitions:
         description: 状态码
         type: integer
       data:
-        items:
-          $ref: '#/definitions/model.Auth'
-        type: array
+        $ref: '#/definitions/model.AuthPagin'
+        type: object
       message:
         description: 提示
         type: string
-      pagin:
-        $ref: '#/definitions/model.PaginRes'
-        type: object
     required:
     - code
     - data
     - message
-    - pagin
+    type: object
+  model.AuthPagin:
+    properties:
+      page:
+        description: 页码
+        type: integer
+      rows:
+        items:
+          $ref: '#/definitions/model.Auth'
+        type: array
+      size:
+        description: 每页数量
+        type: integer
+      totalCount:
+        description: 总数
+        type: integer
+      totalPage:
+        description: 总页码
+        type: integer
+    required:
+    - page
+    - rows
+    - size
+    - totalCount
+    - totalPage
     type: object
   model.AuthRes:
     properties:
@@ -187,20 +207,40 @@ definitions:
         description: 状态码
         type: integer
       data:
-        items:
-          $ref: '#/definitions/model.Group'
-        type: array
+        $ref: '#/definitions/model.GroupPagin'
+        type: object
       message:
         description: 提示
         type: string
-      pagin:
-        $ref: '#/definitions/model.PaginRes'
-        type: object
     required:
     - code
     - data
     - message
-    - pagin
+    type: object
+  model.GroupPagin:
+    properties:
+      page:
+        description: 页码
+        type: integer
+      rows:
+        items:
+          $ref: '#/definitions/model.Group'
+        type: array
+      size:
+        description: 每页数量
+        type: integer
+      totalCount:
+        description: 总数
+        type: integer
+      totalPage:
+        description: 总页码
+        type: integer
+    required:
+    - page
+    - rows
+    - size
+    - totalCount
+    - totalPage
     type: object
   model.GroupRes:
     properties:
@@ -329,20 +369,40 @@ definitions:
         description: 状态码
         type: integer
       data:
-        items:
-          $ref: '#/definitions/model.Menu'
-        type: array
+        $ref: '#/definitions/model.MenuPagin'
+        type: object
       message:
         description: 提示
         type: string
-      pagin:
-        $ref: '#/definitions/model.PaginRes'
-        type: object
     required:
     - code
     - data
     - message
-    - pagin
+    type: object
+  model.MenuPagin:
+    properties:
+      page:
+        description: 页码
+        type: integer
+      rows:
+        items:
+          $ref: '#/definitions/model.Menu'
+        type: array
+      size:
+        description: 每页数量
+        type: integer
+      totalCount:
+        description: 总数
+        type: integer
+      totalPage:
+        description: 总页码
+        type: integer
+    required:
+    - page
+    - rows
+    - size
+    - totalCount
+    - totalPage
     type: object
   model.MenuRes:
     properties:
@@ -371,22 +431,6 @@ definitions:
       sort:
         description: 排序
         type: string
-    type: object
-  model.PaginRes:
-    properties:
-      page:
-        description: 页码
-        type: integer
-      size:
-        description: 每页数量
-        type: integer
-      total:
-        description: 总数
-        type: integer
-    required:
-    - page
-    - size
-    - total
     type: object
   model.Role:
     properties:
@@ -419,20 +463,40 @@ definitions:
         description: 状态码
         type: integer
       data:
-        items:
-          $ref: '#/definitions/model.Role'
-        type: array
+        $ref: '#/definitions/model.RolePagin'
+        type: object
       message:
         description: 提示
         type: string
-      pagin:
-        $ref: '#/definitions/model.PaginRes'
-        type: object
     required:
     - code
     - data
     - message
-    - pagin
+    type: object
+  model.RolePagin:
+    properties:
+      page:
+        description: 页码
+        type: integer
+      rows:
+        items:
+          $ref: '#/definitions/model.Role'
+        type: array
+      size:
+        description: 每页数量
+        type: integer
+      totalCount:
+        description: 总数
+        type: integer
+      totalPage:
+        description: 总页码
+        type: integer
+    required:
+    - page
+    - rows
+    - size
+    - totalCount
+    - totalPage
     type: object
   model.RoleRes:
     properties:
@@ -631,20 +695,40 @@ definitions:
         description: 状态码
         type: integer
       data:
-        items:
-          $ref: '#/definitions/model.UserGroup'
-        type: array
+        $ref: '#/definitions/model.UserGroupPagin'
+        type: object
       message:
         description: 提示
         type: string
-      pagin:
-        $ref: '#/definitions/model.PaginRes'
-        type: object
     required:
     - code
     - data
     - message
-    - pagin
+    type: object
+  model.UserGroupPagin:
+    properties:
+      page:
+        description: 页码
+        type: integer
+      rows:
+        items:
+          $ref: '#/definitions/model.UserGroup'
+        type: array
+      size:
+        description: 每页数量
+        type: integer
+      totalCount:
+        description: 总数
+        type: integer
+      totalPage:
+        description: 总页码
+        type: integer
+    required:
+    - page
+    - rows
+    - size
+    - totalCount
+    - totalPage
     type: object
   model.UserGroupRes:
     properties:
@@ -668,20 +752,40 @@ definitions:
         description: 状态码
         type: integer
       data:
-        items:
-          $ref: '#/definitions/model.User'
-        type: array
+        $ref: '#/definitions/model.UserPagin'
+        type: object
       message:
         description: 提示
         type: string
-      pagin:
-        $ref: '#/definitions/model.PaginRes'
-        type: object
     required:
     - code
     - data
     - message
-    - pagin
+    type: object
+  model.UserPagin:
+    properties:
+      page:
+        description: 页码
+        type: integer
+      rows:
+        items:
+          $ref: '#/definitions/model.User'
+        type: array
+      size:
+        description: 每页数量
+        type: integer
+      totalCount:
+        description: 总数
+        type: integer
+      totalPage:
+        description: 总页码
+        type: integer
+    required:
+    - page
+    - rows
+    - size
+    - totalCount
+    - totalPage
     type: object
   model.UserRes:
     properties:
@@ -1133,6 +1237,10 @@ paths:
       - application/json
       description: 查询多条信息...
       parameters:
+      - description: 页码
+        in: query
+        name: page
+        type: integer
       - description: 每页数量
         in: query
         name: size
@@ -1141,10 +1249,6 @@ paths:
         in: query
         name: sort
         type: string
-      - description: 页码
-        in: query
-        name: page
-        type: integer
       produces:
       - application/json
       responses:
@@ -1589,6 +1693,10 @@ paths:
       - application/json
       description: 查询多条信息...
       parameters:
+      - description: 每页数量
+        in: query
+        name: size
+        type: integer
       - description: 排序
         in: query
         name: sort
@@ -1596,10 +1704,6 @@ paths:
       - description: 页码
         in: query
         name: page
-        type: integer
-      - description: 每页数量
-        in: query
-        name: size
         type: integer
       produces:
       - application/json
@@ -1908,6 +2012,10 @@ paths:
       - application/json
       description: 查询多条信息...
       parameters:
+      - description: 页码
+        in: query
+        name: page
+        type: integer
       - description: 每页数量
         in: query
         name: size
@@ -1916,10 +2024,6 @@ paths:
         in: query
         name: sort
         type: string
-      - description: 页码
-        in: query
-        name: page
-        type: integer
       produces:
       - application/json
       responses:
@@ -2108,10 +2212,6 @@ paths:
       - application/json
       description: 查询多条信息...
       parameters:
-      - description: 页码
-        in: query
-        name: page
-        type: integer
       - description: 每页数量
         in: query
         name: size
@@ -2120,6 +2220,10 @@ paths:
         in: query
         name: sort
         type: string
+      - description: 页码
+        in: query
+        name: page
+        type: integer
       produces:
       - application/json
       responses:

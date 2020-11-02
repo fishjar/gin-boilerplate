@@ -653,6 +653,12 @@
                 "parameters": [
                     {
                         "type": "integer",
+                        "description": "页码",
+                        "name": "page",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
                         "description": "每页数量",
                         "name": "size",
                         "in": "query"
@@ -661,12 +667,6 @@
                         "type": "string",
                         "description": "排序",
                         "name": "sort",
-                        "in": "query"
-                    },
-                    {
-                        "type": "integer",
-                        "description": "页码",
-                        "name": "page",
                         "in": "query"
                     }
                 ],
@@ -1376,6 +1376,12 @@
                 "summary": "查询多条信息",
                 "parameters": [
                     {
+                        "type": "integer",
+                        "description": "每页数量",
+                        "name": "size",
+                        "in": "query"
+                    },
+                    {
                         "type": "string",
                         "description": "排序",
                         "name": "sort",
@@ -1385,12 +1391,6 @@
                         "type": "integer",
                         "description": "页码",
                         "name": "page",
-                        "in": "query"
-                    },
-                    {
-                        "type": "integer",
-                        "description": "每页数量",
-                        "name": "size",
                         "in": "query"
                     }
                 ],
@@ -1886,6 +1886,12 @@
                 "parameters": [
                     {
                         "type": "integer",
+                        "description": "页码",
+                        "name": "page",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
                         "description": "每页数量",
                         "name": "size",
                         "in": "query"
@@ -1894,12 +1900,6 @@
                         "type": "string",
                         "description": "排序",
                         "name": "sort",
-                        "in": "query"
-                    },
-                    {
-                        "type": "integer",
-                        "description": "页码",
-                        "name": "page",
                         "in": "query"
                     }
                 ],
@@ -2203,12 +2203,6 @@
                 "parameters": [
                     {
                         "type": "integer",
-                        "description": "页码",
-                        "name": "page",
-                        "in": "query"
-                    },
-                    {
-                        "type": "integer",
                         "description": "每页数量",
                         "name": "size",
                         "in": "query"
@@ -2217,6 +2211,12 @@
                         "type": "string",
                         "description": "排序",
                         "name": "sort",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页码",
+                        "name": "page",
                         "in": "query"
                     }
                 ],
@@ -2636,8 +2636,7 @@
             "required": [
                 "code",
                 "data",
-                "message",
-                "pagin"
+                "message"
             ],
             "properties": {
                 "code": {
@@ -2645,18 +2644,46 @@
                     "type": "integer"
                 },
                 "data": {
+                    "type": "object",
+                    "$ref": "#/definitions/model.AuthPagin"
+                },
+                "message": {
+                    "description": "提示",
+                    "type": "string"
+                }
+            }
+        },
+        "model.AuthPagin": {
+            "type": "object",
+            "required": [
+                "page",
+                "rows",
+                "size",
+                "totalCount",
+                "totalPage"
+            ],
+            "properties": {
+                "page": {
+                    "description": "页码",
+                    "type": "integer"
+                },
+                "rows": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/model.Auth"
                     }
                 },
-                "message": {
-                    "description": "提示",
-                    "type": "string"
+                "size": {
+                    "description": "每页数量",
+                    "type": "integer"
                 },
-                "pagin": {
-                    "type": "object",
-                    "$ref": "#/definitions/model.PaginRes"
+                "totalCount": {
+                    "description": "总数",
+                    "type": "integer"
+                },
+                "totalPage": {
+                    "description": "总页码",
+                    "type": "integer"
                 }
             }
         },
@@ -2757,8 +2784,7 @@
             "required": [
                 "code",
                 "data",
-                "message",
-                "pagin"
+                "message"
             ],
             "properties": {
                 "code": {
@@ -2766,18 +2792,46 @@
                     "type": "integer"
                 },
                 "data": {
+                    "type": "object",
+                    "$ref": "#/definitions/model.GroupPagin"
+                },
+                "message": {
+                    "description": "提示",
+                    "type": "string"
+                }
+            }
+        },
+        "model.GroupPagin": {
+            "type": "object",
+            "required": [
+                "page",
+                "rows",
+                "size",
+                "totalCount",
+                "totalPage"
+            ],
+            "properties": {
+                "page": {
+                    "description": "页码",
+                    "type": "integer"
+                },
+                "rows": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/model.Group"
                     }
                 },
-                "message": {
-                    "description": "提示",
-                    "type": "string"
+                "size": {
+                    "description": "每页数量",
+                    "type": "integer"
                 },
-                "pagin": {
-                    "type": "object",
-                    "$ref": "#/definitions/model.PaginRes"
+                "totalCount": {
+                    "description": "总数",
+                    "type": "integer"
+                },
+                "totalPage": {
+                    "description": "总页码",
+                    "type": "integer"
                 }
             }
         },
@@ -2954,8 +3008,7 @@
             "required": [
                 "code",
                 "data",
-                "message",
-                "pagin"
+                "message"
             ],
             "properties": {
                 "code": {
@@ -2963,18 +3016,46 @@
                     "type": "integer"
                 },
                 "data": {
+                    "type": "object",
+                    "$ref": "#/definitions/model.MenuPagin"
+                },
+                "message": {
+                    "description": "提示",
+                    "type": "string"
+                }
+            }
+        },
+        "model.MenuPagin": {
+            "type": "object",
+            "required": [
+                "page",
+                "rows",
+                "size",
+                "totalCount",
+                "totalPage"
+            ],
+            "properties": {
+                "page": {
+                    "description": "页码",
+                    "type": "integer"
+                },
+                "rows": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/model.Menu"
                     }
                 },
-                "message": {
-                    "description": "提示",
-                    "type": "string"
+                "size": {
+                    "description": "每页数量",
+                    "type": "integer"
                 },
-                "pagin": {
-                    "type": "object",
-                    "$ref": "#/definitions/model.PaginRes"
+                "totalCount": {
+                    "description": "总数",
+                    "type": "integer"
+                },
+                "totalPage": {
+                    "description": "总页码",
+                    "type": "integer"
                 }
             }
         },
@@ -3014,28 +3095,6 @@
                 "sort": {
                     "description": "排序",
                     "type": "string"
-                }
-            }
-        },
-        "model.PaginRes": {
-            "type": "object",
-            "required": [
-                "page",
-                "size",
-                "total"
-            ],
-            "properties": {
-                "page": {
-                    "description": "页码",
-                    "type": "integer"
-                },
-                "size": {
-                    "description": "每页数量",
-                    "type": "integer"
-                },
-                "total": {
-                    "description": "总数",
-                    "type": "integer"
                 }
             }
         },
@@ -3079,8 +3138,7 @@
             "required": [
                 "code",
                 "data",
-                "message",
-                "pagin"
+                "message"
             ],
             "properties": {
                 "code": {
@@ -3088,18 +3146,46 @@
                     "type": "integer"
                 },
                 "data": {
+                    "type": "object",
+                    "$ref": "#/definitions/model.RolePagin"
+                },
+                "message": {
+                    "description": "提示",
+                    "type": "string"
+                }
+            }
+        },
+        "model.RolePagin": {
+            "type": "object",
+            "required": [
+                "page",
+                "rows",
+                "size",
+                "totalCount",
+                "totalPage"
+            ],
+            "properties": {
+                "page": {
+                    "description": "页码",
+                    "type": "integer"
+                },
+                "rows": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/model.Role"
                     }
                 },
-                "message": {
-                    "description": "提示",
-                    "type": "string"
+                "size": {
+                    "description": "每页数量",
+                    "type": "integer"
                 },
-                "pagin": {
-                    "type": "object",
-                    "$ref": "#/definitions/model.PaginRes"
+                "totalCount": {
+                    "description": "总数",
+                    "type": "integer"
+                },
+                "totalPage": {
+                    "description": "总页码",
+                    "type": "integer"
                 }
             }
         },
@@ -3368,8 +3454,7 @@
             "required": [
                 "code",
                 "data",
-                "message",
-                "pagin"
+                "message"
             ],
             "properties": {
                 "code": {
@@ -3377,18 +3462,46 @@
                     "type": "integer"
                 },
                 "data": {
+                    "type": "object",
+                    "$ref": "#/definitions/model.UserGroupPagin"
+                },
+                "message": {
+                    "description": "提示",
+                    "type": "string"
+                }
+            }
+        },
+        "model.UserGroupPagin": {
+            "type": "object",
+            "required": [
+                "page",
+                "rows",
+                "size",
+                "totalCount",
+                "totalPage"
+            ],
+            "properties": {
+                "page": {
+                    "description": "页码",
+                    "type": "integer"
+                },
+                "rows": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/model.UserGroup"
                     }
                 },
-                "message": {
-                    "description": "提示",
-                    "type": "string"
+                "size": {
+                    "description": "每页数量",
+                    "type": "integer"
                 },
-                "pagin": {
-                    "type": "object",
-                    "$ref": "#/definitions/model.PaginRes"
+                "totalCount": {
+                    "description": "总数",
+                    "type": "integer"
+                },
+                "totalPage": {
+                    "description": "总页码",
+                    "type": "integer"
                 }
             }
         },
@@ -3419,8 +3532,7 @@
             "required": [
                 "code",
                 "data",
-                "message",
-                "pagin"
+                "message"
             ],
             "properties": {
                 "code": {
@@ -3428,18 +3540,46 @@
                     "type": "integer"
                 },
                 "data": {
+                    "type": "object",
+                    "$ref": "#/definitions/model.UserPagin"
+                },
+                "message": {
+                    "description": "提示",
+                    "type": "string"
+                }
+            }
+        },
+        "model.UserPagin": {
+            "type": "object",
+            "required": [
+                "page",
+                "rows",
+                "size",
+                "totalCount",
+                "totalPage"
+            ],
+            "properties": {
+                "page": {
+                    "description": "页码",
+                    "type": "integer"
+                },
+                "rows": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/model.User"
                     }
                 },
-                "message": {
-                    "description": "提示",
-                    "type": "string"
+                "size": {
+                    "description": "每页数量",
+                    "type": "integer"
                 },
-                "pagin": {
-                    "type": "object",
-                    "$ref": "#/definitions/model.PaginRes"
+                "totalCount": {
+                    "description": "总数",
+                    "type": "integer"
+                },
+                "totalPage": {
+                    "description": "总页码",
+                    "type": "integer"
                 }
             }
         },
