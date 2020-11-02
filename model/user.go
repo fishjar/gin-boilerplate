@@ -70,6 +70,16 @@ type UserRes struct {
 	Data User `json:"data" binding:"required"`
 }
 
+type UserPaginData struct {
+	Pagin PaginRes `json:"pagin" binding:"required"`
+	Rows  []User   `json:"rows" binding:"required"`
+}
+
+type UserListRes2 struct {
+	HTTPSuccess
+	Data UserPaginData `json:"data" binding:"required"`
+}
+
 // UserListRes 返回列表
 type UserListRes struct {
 	HTTPSuccess

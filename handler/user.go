@@ -67,9 +67,11 @@ func UserFindAndCountAll(c *gin.Context) {
 	}
 
 	// 返回数据
-	c.JSON(http.StatusOK, model.UserListRes{
-		Pagin: q.Pagin(total),
-		Data:  rows,
+	c.JSON(http.StatusOK, model.UserListRes2{
+		Data: model.UserPaginData{
+			Pagin: q.Pagin(total),
+			Rows:  rows,
+		},
 	})
 }
 
