@@ -68,8 +68,10 @@ func UserGroupFindAndCountAll(c *gin.Context) {
 
 	// 返回数据
 	c.JSON(http.StatusOK, model.UserGroupListRes{
-		Pagin: q.Pagin(total),
-		Data:  rows,
+		Data: model.UserGroupPagin{
+			PaginRes: q.Pagin(total),
+			Rows:     rows,
+		},
 	})
 }
 

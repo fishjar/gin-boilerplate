@@ -20,11 +20,16 @@ type GroupRes struct {
 	Data Group `json:"data" binding:"required"`
 }
 
+// GroupPagin 分页数据
+type GroupPagin struct {
+	PaginRes
+	Rows []Group `json:"rows" binding:"required"`
+}
+
 // GroupListRes 返回列表
 type GroupListRes struct {
 	HTTPSuccess
-	Pagin PaginRes `json:"pagin" binding:"required"`
-	Data  []Group  `json:"data" binding:"required"`
+	Data GroupPagin `json:"data" binding:"required"`
 }
 
 // TableName 自定义表名

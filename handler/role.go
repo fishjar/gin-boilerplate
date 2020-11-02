@@ -68,8 +68,10 @@ func RoleFindAndCountAll(c *gin.Context) {
 
 	// 返回数据
 	c.JSON(http.StatusOK, model.RoleListRes{
-		Pagin: q.Pagin(total),
-		Data:  rows,
+		Data: model.RolePagin{
+			PaginRes: q.Pagin(total),
+			Rows:     rows,
+		},
 	})
 }
 

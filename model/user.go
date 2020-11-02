@@ -70,21 +70,16 @@ type UserRes struct {
 	Data User `json:"data" binding:"required"`
 }
 
-type UserPaginData struct {
-	Pagin PaginRes `json:"pagin" binding:"required"`
-	Rows  []User   `json:"rows" binding:"required"`
-}
-
-type UserListRes2 struct {
-	HTTPSuccess
-	Data UserPaginData `json:"data" binding:"required"`
+// UserPagin 分页数据
+type UserPagin struct {
+	PaginRes
+	Rows []User `json:"rows" binding:"required"`
 }
 
 // UserListRes 返回列表
 type UserListRes struct {
 	HTTPSuccess
-	Pagin PaginRes `json:"pagin" binding:"required"`
-	Data  []User   `json:"data" binding:"required"`
+	Data UserPagin `json:"data" binding:"required"`
 }
 
 // GetRoles 获取用户角色列表

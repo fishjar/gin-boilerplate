@@ -68,8 +68,10 @@ func AuthFindAndCountAll(c *gin.Context) {
 
 	// 返回数据
 	c.JSON(http.StatusOK, model.AuthListRes{
-		Pagin: q.Pagin(total),
-		Data:  rows,
+		Data: model.AuthPagin{
+			PaginRes: q.Pagin(total),
+			Rows:     rows,
+		},
 	})
 }
 

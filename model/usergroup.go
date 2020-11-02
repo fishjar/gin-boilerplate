@@ -23,11 +23,16 @@ type UserGroupRes struct {
 	Data UserGroup `json:"data" binding:"required"`
 }
 
+// UserGroupPagin 分页数据
+type UserGroupPagin struct {
+	PaginRes
+	Rows []UserGroup `json:"rows" binding:"required"`
+}
+
 // UserGroupListRes 返回列表
 type UserGroupListRes struct {
 	HTTPSuccess
-	Pagin PaginRes    `json:"pagin" binding:"required"`
-	Data  []UserGroup `json:"data" binding:"required"`
+	Data UserGroupPagin `json:"data" binding:"required"`
 }
 
 // TableName 自定义表名

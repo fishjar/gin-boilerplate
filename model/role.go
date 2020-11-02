@@ -14,11 +14,16 @@ type RoleRes struct {
 	Data Role `json:"data" binding:"required"`
 }
 
+// RolePagin 分页数据
+type RolePagin struct {
+	PaginRes
+	Rows []Role `json:"rows" binding:"required"`
+}
+
 // RoleListRes 角色列表
 type RoleListRes struct {
 	HTTPSuccess
-	Pagin PaginRes `json:"pagin" binding:"required"`
-	Data  []Role   `json:"data" binding:"required"`
+	Data RolePagin `json:"data" binding:"required"`
 }
 
 // TableName 自定义表名

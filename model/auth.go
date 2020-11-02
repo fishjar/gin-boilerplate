@@ -26,11 +26,16 @@ type AuthRes struct {
 	Data Auth `json:"data" binding:"required"`
 }
 
+// AuthPagin 分页数据
+type AuthPagin struct {
+	PaginRes
+	Rows []Auth `json:"rows" binding:"required"`
+}
+
 // AuthListRes 返回列表
 type AuthListRes struct {
 	HTTPSuccess
-	Pagin PaginRes `json:"pagin" binding:"required"`
-	Data  []Auth   `json:"data" binding:"required"`
+	Data AuthPagin `json:"data" binding:"required"`
 }
 
 // // AuthPublic 公开模型

@@ -23,11 +23,16 @@ type MenuRes struct {
 	Data Menu `json:"data" binding:"required"`
 }
 
+// MenuPagin 分页数据
+type MenuPagin struct {
+	PaginRes
+	Rows []Menu `json:"rows" binding:"required"`
+}
+
 // MenuListRes 返回列表
 type MenuListRes struct {
 	HTTPSuccess
-	Pagin PaginRes `json:"pagin" binding:"required"`
-	Data  []Menu   `json:"data" binding:"required"`
+	Data MenuPagin `json:"data" binding:"required"`
 }
 
 // TableName 自定义表名

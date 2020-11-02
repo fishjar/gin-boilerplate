@@ -68,8 +68,10 @@ func MenuFindAndCountAll(c *gin.Context) {
 
 	// 返回数据
 	c.JSON(http.StatusOK, model.MenuListRes{
-		Pagin: q.Pagin(total),
-		Data:  rows,
+		Data: model.MenuPagin{
+			PaginRes: q.Pagin(total),
+			Rows:     rows,
+		},
 	})
 }
 

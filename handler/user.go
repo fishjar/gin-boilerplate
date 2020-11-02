@@ -67,10 +67,10 @@ func UserFindAndCountAll(c *gin.Context) {
 	}
 
 	// 返回数据
-	c.JSON(http.StatusOK, model.UserListRes2{
-		Data: model.UserPaginData{
-			Pagin: q.Pagin(total),
-			Rows:  rows,
+	c.JSON(http.StatusOK, model.UserListRes{
+		Data: model.UserPagin{
+			PaginRes: q.Pagin(total),
+			Rows:     rows,
 		},
 	})
 }
@@ -338,7 +338,9 @@ func UserFindMyRoles(c *gin.Context) {
 
 	// 返回数据
 	c.JSON(http.StatusOK, model.RoleListRes{
-		Data: roles,
+		Data: model.RolePagin{
+			Rows: roles,
+		},
 	})
 }
 
@@ -362,7 +364,9 @@ func UserFindMyGroups(c *gin.Context) {
 
 	// 返回数据
 	c.JSON(http.StatusOK, model.UserGroupListRes{
-		Data: groups,
+		Data: model.UserGroupPagin{
+			Rows: groups,
+		},
 	})
 }
 
@@ -386,6 +390,8 @@ func UserFindMyMenus(c *gin.Context) {
 
 	// 返回数据
 	c.JSON(http.StatusOK, model.MenuListRes{
-		Data: menus,
+		Data: model.MenuPagin{
+			Rows: menus,
+		},
 	})
 }
